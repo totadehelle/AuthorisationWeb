@@ -5,6 +5,8 @@ namespace AuthorisationWeb.Models
 {
     public class User
     {
+        public long Id { get; set; }
+        
         [Required(ErrorMessage ="Login cannot be empty!", AllowEmptyStrings =false)]
         public string login { get; set; }
         

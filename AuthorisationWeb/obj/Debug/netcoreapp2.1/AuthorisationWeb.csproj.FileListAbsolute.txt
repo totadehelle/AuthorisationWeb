@@ -1,0 +1,14 @@
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/bin/Debug/netcoreapp2.1/AuthorisationWeb.deps.json
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/bin/Debug/netcoreapp2.1/AuthorisationWeb.runtimeconfig.json
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/bin/Debug/netcoreapp2.1/AuthorisationWeb.runtimeconfig.dev.json
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/bin/Debug/netcoreapp2.1/AuthorisationWeb.dll
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/bin/Debug/netcoreapp2.1/AuthorisationWeb.pdb
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.csprojAssemblyReference.cache
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.csproj.CoreCompileInputs.cache
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.RazorAssemblyInfo.cache
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.RazorAssemblyInfo.cs
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.AssemblyInfoInputs.cache
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.AssemblyInfo.cs
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.RazorTargetAssemblyInfo.cache
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.dll
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.pdb

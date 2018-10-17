@@ -26,6 +26,7 @@ namespace AuthorisationWeb.Models
             if (oldUser == null)
             {
                 _context.Users.Add(user);
+                _context.SaveChanges();
                 return "New user was successfully registered!";
             }
 
@@ -35,6 +36,7 @@ namespace AuthorisationWeb.Models
         
         public override IActionResult UserLogin([FromBody] User user)
         {
+            
             var targetUser = _context.Users.FirstOrDefault(t => t.login == user.login);
             
             if (targetUser == null)
@@ -47,9 +49,10 @@ namespace AuthorisationWeb.Models
                 return new UnauthorizedResult();
             }
             
-            string LoginAndGuid = user.login + new Guid().ToString();
-            var token = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(LoginAndGuid));
-            _context.Entry(targetUser).CurrentValues.SetValues(user);
+            string LoginAndGuid = user.login + new Guid();
+            var token = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(LoginAndGuid));
+            _context.Entry(targetUser).CurrentValues.SetValues(new Dictionary<string, object> {{"token", token}});
+            _context.SaveChanges();
             return new ObjectResult(token);
         }
         

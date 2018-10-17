@@ -9,10 +9,12 @@ namespace AuthorisationWeb.Controllers
     public class UserServicesController : Controller
     {
         public Service _userServices;
+        private readonly UserServicesContext _context;
 
-        public UserServicesController(Service userServices)
+        public UserServicesController(UserServicesContext context)
         {
-            _userServices = userServices;
+            _context = context;
+            _userServices = new ProtectionProxy(_context);
         }
 
         [HttpPost("signup")]
@@ -20,13 +22,9 @@ namespace AuthorisationWeb.Controllers
         {
             if (user != null)
             {
-                //if (!string.IsNullOrEmpty(user.login) 
-                //  && !string.IsNullOrEmpty(user.password)
-                //   &&!string.IsNullOrWhiteSpace(user.login)
-                //  &&!string.IsNullOrWhiteSpace(user.password))
-                //{
+                
                 return new ObjectResult(_userServices.RegisterNewUser(user));
-                //}
+                
             }
             
             return BadRequest();
@@ -37,13 +35,7 @@ namespace AuthorisationWeb.Controllers
         {
             if (user != null)
             {
-                //if (!string.IsNullOrEmpty(user.login) 
-                //    && !string.IsNullOrEmpty(user.password)
-                //  &&!string.IsNullOrWhiteSpace(user.login)
-                //&&!string.IsNullOrWhiteSpace(user.password))
-                //{
-                return new ObjectResult(_userServices.UserLogin(user));
-                //}
+               return _userServices.UserLogin(user);
             }
             
             return BadRequest();
