@@ -7,14 +7,17 @@
       <e p="AuthorisationWeb" t="IncludeRecursive">
         <e p="AuthorisationWeb.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="UserServicesController.cs" t="Include" />
+          <e p="AccountController.cs" t="Include" />
+          <e p="AuthOptions.cs" t="Include" />
+          <e p="UserServiceController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
-          <e p="ProtectionProxy.cs" t="Include" />
-          <e p="Service.cs" t="Include" />
+          <e p="AuthService.cs" t="Include" />
+          <e p="AuthServiceContext.cs" t="Include" />
+          <e p="IAuthService.cs" t="Include" />
+          <e p="IUserService.cs" t="Include" />
           <e p="User.cs" t="Include" />
-          <e p="UserServices.cs" t="Include" />
-          <e p="UserServicesContext.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
