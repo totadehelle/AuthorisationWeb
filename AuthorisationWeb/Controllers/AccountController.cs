@@ -1,9 +1,14 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AuthorizationWeb.Models;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace AuthorizationWeb.Controllers
 {
@@ -30,7 +35,7 @@ namespace AuthorizationWeb.Controllers
         }
         
         [HttpPost("signin")]
-        public async Task<IActionResult> LogIn([FromBody] User user)
+        public async Task LogIn([FromBody] User user)
         {
             if (user != null)    
             {
@@ -38,24 +43,64 @@ namespace AuthorizationWeb.Controllers
                 var receivedUser = await _authService.UserLogin(user);
                 if (receivedUser != null)
                 {
+                    var identity = GetIdentity(user);
                     
-                    return await SignInUser(receivedUser);
+                    var now = DateTime.UtcNow;
+                    // создаем JWT-токен
+                    var jwt = new JwtSecurityToken(
+                        AuthOptions.ISSUER,
+                        AuthOptions.AUDIENCE,
+                        notBefore: now,
+                        claims: identity.Claims,
+                        expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                        signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+                    var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+             
+                    var response = new
+                    {
+                        access_token = encodedJwt,
+                        username = identity.Name
+                    };
+ 
+                    // сериализация ответа
+                    Response.ContentType = "application/json";
+                    await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+                    
+                    //return await SignInUser(receivedUser);
                 }
                 
-                return new UnauthorizedResult();
+                else await Response.WriteAsync("Invalid username or password.");
             }
 
             else
             {
-                return BadRequest();
+                await Response.WriteAsync("Bad request.");
             }
         }
+        
+        
+        //???
+        private ClaimsIdentity GetIdentity(User user)
+        {
+            var claims = new List<Claim>
+                {
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.login),
+                };
+                ClaimsIdentity claimsIdentity =
+                    new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                        ClaimsIdentity.DefaultRoleClaimType);
+                return claimsIdentity;
+        }
+        
+        //???
+        
+        
         
         private async Task<IActionResult> SignInUser(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.login),
+                new Claim(ClaimTypes.NameIdentifier, user.token),
             };
             var identity = new ClaimsIdentity(claims);
             var principal = new ClaimsPrincipal(identity);
