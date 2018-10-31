@@ -55,6 +55,8 @@ namespace AuthorizationWeb.Controllers
                         expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
                         signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
                     var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+                    _authService.SaveToken(receivedUser.login, encodedJwt);
              
                     var response = new
                     {

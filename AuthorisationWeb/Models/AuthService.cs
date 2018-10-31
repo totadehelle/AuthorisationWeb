@@ -53,5 +53,13 @@ namespace AuthorizationWeb.Models
 
             return null;
         }
+
+        public void SaveToken(string _login, string token)
+        {
+            var targetUser = _context.Users.FirstOrDefault(t => t.login == _login);
+            
+            _context.Entry(targetUser).CurrentValues.SetValues(new Dictionary<string, object> {{"token", token}});
+            _context.SaveChanges();
+        }
     }
 }

@@ -49,12 +49,12 @@ namespace AuthorizationWeb
                     };
                 });
             
-            services.AddAuthorization(options =>
+            /*services.AddAuthorization(options =>
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
                     .Build();
-            });
+            });*/
             
             services.AddMvc();
             

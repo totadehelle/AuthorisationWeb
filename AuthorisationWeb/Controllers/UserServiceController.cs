@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace AuthorizationWeb.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize/*(AuthenticationSchemes = "Bearer")*/]
     [ApiController]
     public class UserServiceController : Controller
     {

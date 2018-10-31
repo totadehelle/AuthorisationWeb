@@ -9,5 +9,6 @@ namespace AuthorizationWeb.Models
     {
         string RegisterNewUser(User user);
         Task<User> UserLogin(User user);
+        void SaveToken(string login, string token);
     }
 }

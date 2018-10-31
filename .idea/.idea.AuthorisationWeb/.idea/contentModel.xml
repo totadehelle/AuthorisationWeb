@@ -9,6 +9,8 @@
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
           <e p="AuthOptions.cs" t="Include" />
+          <e p="IModule.cs" t="Include" />
+          <e p="ModuleActivator.cs" t="Include" />
           <e p="UserServiceController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
