@@ -12,3 +12,4 @@
 /home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.RazorTargetAssemblyInfo.cache
 /home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.dll
 /home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/AuthorisationWeb.pdb
+/home/alter/RiderProjects/AuthorisationWeb/AuthorisationWeb/obj/Debug/netcoreapp2.1/UserSecretsAssemblyInfo.cs
