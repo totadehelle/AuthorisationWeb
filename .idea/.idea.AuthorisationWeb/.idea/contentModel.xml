@@ -5,22 +5,29 @@
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_AuthorisationWeb.-20029586.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="AuthorisationWeb" t="IncludeRecursive">
+        <e p="AuthServiceData.db" t="Include" />
         <e p="AuthorisationWeb.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="UserServicesController.cs" t="Include" />
+          <e p="AccountController.cs" t="Include" />
+          <e p="AuthOptions.cs" t="Include" />
+          <e p="IModule.cs" t="Include" />
+          <e p="ModuleActivator.cs" t="Include" />
+          <e p="UserServiceController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
-          <e p="ProtectionProxy.cs" t="Include" />
-          <e p="Service.cs" t="Include" />
+          <e p="AuthService.cs" t="Include" />
+          <e p="AuthServiceContext.cs" t="Include" />
+          <e p="IAuthService.cs" t="Include" />
+          <e p="IUserService.cs" t="Include" />
           <e p="User.cs" t="Include" />
-          <e p="UserServices.cs" t="Include" />
-          <e p="UserServicesContext.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

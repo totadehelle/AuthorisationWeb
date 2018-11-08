@@ -1,7 +1,7 @@
 using System.Buffers.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace AuthorisationWeb.Models
+namespace AuthorizationWeb.Models
 {
     public class User
     {
